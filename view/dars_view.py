@@ -4,7 +4,6 @@ from tkinter import ttk
 from PIL import Image, ImageTk
 import sqlite3
 
-lesson_list=[]
 
 def reset_form():
     code.set(0)
@@ -26,7 +25,6 @@ def save_click():
     reset_form()
     table.insert("",END,values=tuple(lessons.values()))
 
-selected_row_id = None
 
 def select_lesson(event):
     global selected_row_id

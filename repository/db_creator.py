@@ -8,23 +8,23 @@ connection = sqlite3.connect('database_dars.db')
 # cursor.close()
 # connection.close()
 
-def create_database():
-    my_connection = sqlite3.connect('repository/database_dars.db')
-    cursor = my_connection.cursor()
-    cursor.execute(
-        """
-        create table lessons (
-        code integer primary key autoincrement ,
-        title text not null ,
-        teacher text not null ,
-        class_number integer,
-        unit integer
-        )
-        """
-    )
-    my_connection.commit()
-    cursor.close()
-    my_connection.close()
+# def create_database():
+#     my_connection = sqlite3.connect(r'E:\python\dars_app\repository\database_dars.db')
+#     cursor = my_connection.cursor()
+#     cursor.execute(
+#         """
+#         create table lessons (
+#         code integer primary key autoincrement ,
+#         title text not null ,
+#         teacher text not null ,
+#         class_number integer,
+#         unit integer
+#         )
+#         """
+#     )
+#     my_connection.commit()
+#     cursor.close()
+#     my_connection.close()
 
 #اضافه کردن رکورد در جدول
 # cursor = connection.cursor()
