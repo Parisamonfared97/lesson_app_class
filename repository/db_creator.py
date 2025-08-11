@@ -1,21 +1,29 @@
 import sqlite3
 
 
-connection = sqlite3.connect('database_dars.db')
+connection = sqlite3.connect('../database_dars.db')
 # cursor = connection.cursor()
 # cursor.execute()
 # connection.commit()
 # cursor.close()
 # connection.close()
 
-
-#دستور ساخت جدول
-#create table lessons(
-#   code integer primary key autoincrement ,
-#   title text not null ,
-#   teacher text not null ,
-#   class_number integer,
-#   unit integer);
+def create_database():
+    connection = sqlite3.connect('../database_dars.db')
+    cursor = connection.cursor()
+    cursor.execute(
+        """
+        create table lessons(
+        code integer primary key autoincrement ,
+        title text not null ,
+        teacher text not null ,
+        class_number integer,
+        unit integer
+        """
+    )
+    connection.commit()
+    cursor.close()
+    connection.close()
 
 #اضافه کردن رکورد در جدول
 # cursor = connection.cursor()
