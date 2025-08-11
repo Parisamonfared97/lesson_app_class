@@ -16,7 +16,7 @@ def save_click():
     #Data Validation
     lessons=(code.get(),title.get(),teacher.get(),class_num.get(),unit.get())
     save(title.get(),teacher.get(),class_num.get(),unit.get())
-    messagebox.showinfo("save",f"Class Saved Successfully!\n{lessons}")
+    messagebox.showinfo("save",f"Saved Successfully!")
     reset_form()
     table.insert("",END,values=tuple(lessons.values()))
 
