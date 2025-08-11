@@ -3,7 +3,7 @@ from tkinter import messagebox
 from tkinter import ttk
 from PIL import Image, ImageTk
 import sqlite3
-
+from repository.lesson_repository import *
 
 def reset_form():
     code.set(0)
@@ -13,23 +13,17 @@ def reset_form():
     unit.set(0)
 
 def save_click():
-    lessons={
-    "code":code.get(),
-    "title":title.get(),
-    "teacher":teacher.get(),
-    "class_num":class_num.get(),
-    "unit":unit.get()
-    }
-    lesson_list.append(lessons)
+    #Data Validation
+    lessons=(code.get(),title.get(),teacher.get(),class_num.get(),unit.get())
+    save(title.get(),teacher.get(),class_num.get(),unit.get())
     messagebox.showinfo("save",f"Class Saved Successfully!\n{lessons}")
     reset_form()
     table.insert("",END,values=tuple(lessons.values()))
 
 
 def select_lesson(event):
-    global selected_row_id
-    selected_row_id=table.focus()
-    selected_lesson=table.item(selected_row_id)["values"]
+    tabel_row=table.focus()
+    selected_lesson=table.item(tabel_row)["values"]
     code.set(selected_lesson[0])
     title.set(selected_lesson[1])
     teacher.set(selected_lesson[2])
