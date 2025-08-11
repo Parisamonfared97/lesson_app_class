@@ -1,7 +1,7 @@
 import sqlite3
 
 
-connection = sqlite3.connect('../database_dars.db')
+connection = sqlite3.connect('database_dars.db')
 # cursor = connection.cursor()
 # cursor.execute()
 # connection.commit()
@@ -9,21 +9,22 @@ connection = sqlite3.connect('../database_dars.db')
 # connection.close()
 
 def create_database():
-    connection = sqlite3.connect('../database_dars.db')
-    cursor = connection.cursor()
+    my_connection = sqlite3.connect('repository/database_dars.db')
+    cursor = my_connection.cursor()
     cursor.execute(
         """
-        create table lessons(
+        create table lessons (
         code integer primary key autoincrement ,
         title text not null ,
         teacher text not null ,
         class_number integer,
         unit integer
+        )
         """
     )
-    connection.commit()
+    my_connection.commit()
     cursor.close()
-    connection.close()
+    my_connection.close()
 
 #اضافه کردن رکورد در جدول
 # cursor = connection.cursor()
